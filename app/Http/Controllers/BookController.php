@@ -2,19 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Book;
 
 class BookController extends Controller
 {
-   public function index()
+    public function index()
     {
+        // Pastikan model Book telah memiliki method relasi 'author'
         $books = Book::with('author')->get();
-        return view('books.index', compact('books'));
+        return response()->json([
+            'status'  => 'success',
+            'message' => 'Books retrieved successfully.',
+            'data'    => $books
+        ], 200);
     }
 
     public function author()
     {
-        return $this->belongsTo(Author::class); 
+        return $this->belongsTo(Author::class);
     }
-};
+}
