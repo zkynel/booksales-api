@@ -3,22 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Author;
+use App\Models\Genre;
 
-class AuthorController extends Controller
+class GenreController extends Controller
 {
-    // Read all data: GET /api/authors
+    // Read all data: GET /api/genres
     public function index()
     {
-        $authors = Author::all();
+        $genres = Genre::all();
         return response()->json([
             'status'  => 'success',
-            'message' => 'Authors retrieved successfully.',
-            'data'    => $authors
+            'message' => 'Genres retrieved successfully.',
+            'data'    => $genres
         ], 200);
     }
 
-    // Create data: POST /api/authors
+    // Create data: POST /api/genres
     public function store(Request $request)
     {
         // Validasi input
@@ -26,12 +26,12 @@ class AuthorController extends Controller
             'name' => 'required|string|max:255',
         ]);
 
-        $author = Author::create($validated);
+        $genre = Genre::create($validated);
 
         return response()->json([
             'status'  => 'success',
-            'message' => 'Author created successfully.',
-            'data'    => $author
+            'message' => 'Genre created successfully.',
+            'data'    => $genre
         ], 201);
     }
 }
