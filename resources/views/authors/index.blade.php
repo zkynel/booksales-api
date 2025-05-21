@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Daftar Author</title>
+    <title>Data Authors</title>
 </head>
 <body>
-    <h1>Daftar Author</h1>
+    <h1>Daftar Authors</h1>
     <ul>
         @foreach($authors as $author)
-            <li>{{ $author['id'] }} - {{ $author['name'] }}</li>
+            <li>{{ $author->id }} - {{ $author->name }}</li>
         @endforeach
     </ul>
 </body>
