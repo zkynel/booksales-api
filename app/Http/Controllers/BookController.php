@@ -8,7 +8,6 @@ class BookController extends Controller
 {
     public function index()
     {
-        // Pastikan model Book telah memiliki method relasi 'author'
         $books = Book::with('author')->get();
         return response()->json([
             'status'  => 'success',
